@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head.html" . }}
+<body>
+{{ partial "header.html" . }}
+
+<section class="container-fluid">
+    <h2>{{ .Title }}</h2>
+
+    {{ range $post := .Data.Pages}}
+    <h3><a href="{{ $post.Permalink }}">{{ $post.Title }}</a></h3>
+    <time pubdate datetime="{{ $post.Date.Format " 2006-01-02 " }}" title="{{ $post.Date.Format "2006-01-02" }}">{{ $post.Date.Format "2006-01-02" }}</time>
+    {{ range $tag := $post.Params.tags }}
+    <a href="/tags/{{ $tag | urlize }}">
+        <button type="button" class="btn btn-default btn-xs">{{ $tag }}</button>
+    </a>
+    {{ end }}
+    {{ end }}
+
+</section>
+
+
+{{ partial "footer.html" . }}
+</body>
+</html>

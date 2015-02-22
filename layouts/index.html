@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+{{ partial "head.html" . }}
+<body>
+{{ partial "header.html" . }}
+
+{{ range first 2 (where .Data.Pages "Section" "post") }}
+{{ partial "content.html" . }}
+{{ end }}
+
+{{ partial "footer.html" . }}
+</body>
+</html>
