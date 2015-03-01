@@ -4,7 +4,7 @@
 <body>
 {{ partial "header.html" . }}
 
-{{ range first 2 (where .Data.Pages "Section" "post") }}
+{{ range first 1 (where .Data.Pages "Section" "post") }}
 {{ partial "content.html" . }}
 {{ end }}
 
