@@ -1,5 +1,13 @@
 <article class="container-fluid">
-    {{ partial "content-header.html" . }}
+    <div class="page-header">
+        <h2><a href="{{ .Permalink }}">{{ .Title }}</a></h2>
+        <time pubdate datetime="{{ .Date.Format " 2006-01-02 " }}" title="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006-01-02" }}</time>
+        {{ range $tag := .Params.tags }}
+        <a href="/tags/{{ $tag | urlize }}">
+            <button type="button" class="btn btn-default btn-xs">{{ $tag }}</button>
+        </a>
+        {{ end }}
+    </div>
 
     {{ .Content }}
 </article>
