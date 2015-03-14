@@ -1,20 +1,26 @@
 <footer>
     <div class="container-fluid">
         <div class="row">
+
             <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-4">
+                <div class="media">
+                    <div class="media-left media-top">
                         <img src="http://www.gravatar.com/avatar/{{ .Site.Params.GravatarHash }}.png">
                     </div>
-                    <div class="col-md-8">
-                        <strong>{{ .Site.Params.Author }}</strong>
-                        <a href="https://twitter.com/{{ .Site.Params.TwitterId }}"><i class="fa fa-twitter-square fa-lg"></i></a>
-                        <a href="https://github.com/{{ .Site.Params.GithubId }}"><i class="fa fa-github-square fa-lg"></i></a>
+                    <div class="media-body">
+                        <strong class="media-heading">{{ .Site.Params.Author }}</strong>
+                        <a href="https://twitter.com/{{ .Site.Params.TwitterId }}">
+                            <i class="fa fa-twitter-square fa-lg"></i>
+                        </a>
+                        <a href="https://github.com/{{ .Site.Params.GithubId }}">
+                            <i class="fa fa-github-square fa-lg"></i>
+                        </a>
                         <br/>
                         <small>{{ .Site.Params.Biography }}</small>
                     </div>
                 </div>
             </div>
+
             <div class="col-md-4"><!-- Archives --></div>
             <div class="col-md-4"><!-- Tags --></div>
 
