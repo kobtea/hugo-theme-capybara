@@ -3,6 +3,7 @@
         <div class="row">
 
             <div class="col-md-4">
+                <strong>Author</strong>
                 <div class="media">
                     <div class="media-left media-top">
                         <img src="http://www.gravatar.com/avatar/{{ .Site.Params.GravatarHash }}.png">
@@ -21,8 +22,14 @@
                 </div>
             </div>
 
-            <div class="col-md-4"><!-- Archives --></div>
-            <div class="col-md-4"><!-- Tags --></div>
+            <!--div class="col-md-4"> Archives </div-->
+
+            <div class="col-md-8">
+                <strong> Tags </strong><br/><br/>
+                {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
+                <a href="/tags/{{ $name | urlize }}"><button type="button" class="btn btn-default btn-xs">{{ $name }}</button></a>
+                {{ end }}
+            </div>
 
         </div>
         <p>&copy; {{ .Site.Params.Copyright }} | Powered by <a href="http://gohugo.io/">HUGO</a> | Themed with <a
