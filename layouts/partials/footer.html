@@ -6,18 +6,18 @@
                 <strong>Author</strong>
                 <div class="media">
                     <div class="media-left media-top">
-                        <img src="http://www.gravatar.com/avatar/{{ .Site.Params.GravatarHash }}.png">
+                        <img src="http://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}.png">
                     </div>
                     <div class="media-body">
-                        <strong class="media-heading">{{ .Site.Params.Author }}</strong>
-                        <a href="https://twitter.com/{{ .Site.Params.TwitterId }}">
+                        <strong class="media-heading">{{ .Site.Params.author }}</strong>
+                        <a href="https://twitter.com/{{ .Site.Params.twitterId }}">
                             <i class="fa fa-twitter-square fa-lg"></i>
                         </a>
-                        <a href="https://github.com/{{ .Site.Params.GithubId }}">
+                        <a href="https://github.com/{{ .Site.Params.githubId }}">
                             <i class="fa fa-github-square fa-lg"></i>
                         </a>
                         <br/>
-                        <small>{{ .Site.Params.Biography }}</small>
+                        <small>{{ .Site.Params.biography }}</small>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
             </div>
 
         </div>
-        <p>&copy; {{ .Site.Params.Copyright }} | Powered by <a href="http://gohugo.io/">HUGO</a> | Themed with <a
+        <p>&copy; {{ .Site.Params.copyright }} | Powered by <a href="http://gohugo.io/">HUGO</a> | Themed with <a
                 href="https://github.com/kobtea/hugo-theme-capybara">Capybara</a></p>
     </div>
 </footer>
