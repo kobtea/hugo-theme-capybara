@@ -1,0 +1,19 @@
+{
+  "name": "hugo-theme-capybara",
+  "version": "1.0.0",
+  "description": "hugo theme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kobtea/hugo-theme-capybara.git"
+  },
+  "author": "kobtea",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kobtea/hugo-theme-capybara/issues"
+  },
+  "homepage": "https://github.com/kobtea/hugo-theme-capybara#readme"
+}
