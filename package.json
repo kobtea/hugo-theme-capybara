@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/kobtea/hugo-theme-capybara/issues"
   },
-  "homepage": "https://github.com/kobtea/hugo-theme-capybara#readme"
+  "homepage": "https://github.com/kobtea/hugo-theme-capybara#readme",
+  "devDependencies": {
+    "bootstrap": "^3.3.5",
+    "grunt": "^0.4.5",
+    "grunt-contrib-less": "^1.1.0",
+    "grunt-contrib-watch": "^0.6.1"
+  }
 }
