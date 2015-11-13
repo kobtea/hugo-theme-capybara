@@ -5,7 +5,7 @@
 {{ partial "header.html" . }}
 
 <section class="container-fluid">
-    <h2>{{ .Title }}</h2>
+    <h1>{{ .Title }}</h1>
 
     {{ range $post := .Data.Pages}}
     <h3><a href="{{ $post.Permalink }}">{{ $post.Title }}</a></h3>
@@ -15,6 +15,7 @@
         <button type="button" class="btn btn-default btn-xs">{{ $tag }}</button>
     </a>
     {{ end }}
+    <br/>
     {{ end }}
 
 </section>
