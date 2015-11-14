@@ -308,7 +308,7 @@
 @navbar-collapse-max-height: 340px;
 @navbar-default-color: #996633;
 @navbar-default-bg: #cc9966;
-@navbar-default-border: darken(@navbar-default-bg, 6.5%);
+@navbar-default-border: @navbar-default-bg;
 @navbar-default-link-color: #996633;
 @navbar-default-link-hover-color: #fff;
 @navbar-default-link-hover-bg: transparent;
@@ -364,7 +364,7 @@
 //== Pagination
 @pagination-color: @gray;
 @pagination-bg: @gray-lighter;
-@pagination-border: @gray-light;
+@pagination-border: @gray-lighter;
 @pagination-hover-color: @gray-dark;
 @pagination-hover-bg: @gray-light;
 @pagination-hover-border: @pagination-border;
@@ -699,12 +699,12 @@
 
 //== Code
 @code-color: @gray-base;
-@code-bg: @gray-lighter;
+@code-bg: #f8f8f8;
 @kbd-color: #fff;
 @kbd-bg: #333;
-@pre-bg: #f5f5f5;
+@pre-bg: #f8f8f8;
 @pre-color: @gray-dark;
-@pre-border-color: #ccc;
+@pre-border-color: @pre-bg;
 @pre-scrollable-max-height: 340px;
 
 //== Type
