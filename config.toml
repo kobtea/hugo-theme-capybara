@@ -1,0 +1,34 @@
+baseurl = "http://example.com"
+languageCode = "en-us"
+title = "example site"
+
+[params]
+author = ""
+biography = ""
+copyright = ""
+subtitle = ""
+description = ""
+gravatarHash = ""
+twitterId = ""
+githubId = ""
+disqusShortname = ""
+googleAnalyticsId = ""
+
+[permalinks]
+posts = "/posts/:year/:month/:day/:slug/"
+
+[taxonomies]
+tag = "tags"
+group = "groups"
+
+[[menu.header]]
+name = "archives"
+weight = 100
+identifier = "archives"
+url = "/posts"
+
+[[menu.header]]
+name = "rss"
+weight = 110
+identifier = "rss"
+url = "/posts/index.xml"
