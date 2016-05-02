@@ -15,6 +15,8 @@ Capybara is a blog theme for [Hugo](http://gohugo.io).
 - Twitter link
 - GitHub link
 - Google analytics
+- Shortcodes
+    - `capy-img` for image
 
 
 ## Demo

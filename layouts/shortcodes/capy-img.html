@@ -1,0 +1,11 @@
+{{/* short code for image
+usage:
+    {{< capy-img "img/some-image.png" >}}
+    {{< capy-img src="img/some-image.png" scale="50" >}}
+*/}}
+
+{{ if .IsNamedParams }}
+<img src="{{ .Get "src" }}" class="img-responsive" {{ if .Get "scale" }}width="{{ .Get "scale" }}%" height="{{ .Get "scale" }}%"{{ end }} />
+{{ else }}
+<img src="{{ index .Params 0 }}" class="img-responsive"/>
+{{ end }}
