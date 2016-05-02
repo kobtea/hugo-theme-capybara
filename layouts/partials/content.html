@@ -7,6 +7,9 @@
             <button type="button" class="btn btn-default btn-xs">{{ $tag }}</button>
         </a>
         {{ end }}
+        <div class="toc">
+            {{ .TableOfContents }}
+        </div>
     </div>
 
     {{ .Content }}
