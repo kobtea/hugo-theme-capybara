@@ -33,12 +33,12 @@
 
 <nav class="container-fluid">
     <ul class="pager">
-        {{ if .Prev }}
-        <li class="previous"><a href="{{ .Prev.Permalink}}"><i class="fa fa-caret-left"></i> {{ .Prev.Title }}</a></li>
+        {{ if .PrevPage }}
+        <li class="previous"><a href="{{ .PrevPage.Permalink}}"><i class="fa fa-caret-left"></i> {{ .PrevPage.Title }}</a></li>
         {{ end }}
 
-        {{ if .Next }}
-        <li class="next"><a href="{{ .Next.Permalink }}">{{ .Next.Title }} <i class="fa fa-caret-right"></i></a></li>
+        {{ if .NextPage }}
+        <li class="next"><a href="{{ .NextPage.Permalink }}">{{ .NextPage.Title }} <i class="fa fa-caret-right"></i></a></li>
         {{ end }}
     </ul>
 </nav>
