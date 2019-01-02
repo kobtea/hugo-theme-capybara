@@ -1,6 +1,12 @@
-author = "kobtea"
-description = ""
-license = "MIT"
 name = "capybara"
-source_repo = ""
-tags = ["", ""]
+license = "MIT"
+licenselink = "https://github.com/kobtea/hugo-theme-capybara/blob/master/LICENSE"
+description = ""
+homepage = "https://github.com/kobtea/hugo-theme-capybara"
+tags = ["blog"]
+features = []
+min_version = "0.41"
+
+[author]
+  name = "kobtea"
+  homepage = "https://kobtea.net"
