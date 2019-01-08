@@ -34,4 +34,6 @@
 </footer>
 <script src="{{ .Site.BaseURL }}/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-{{ template "_internal/google_analytics_async.html" . }}
+{{ if not .Site.IsServer }}
+    {{ template "_internal/google_analytics_async.html" . }}
+{{ end }}
