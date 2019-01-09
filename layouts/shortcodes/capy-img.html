@@ -6,8 +6,10 @@ usage:
 
 {{ if .IsNamedParams }}
 {{ $img := $.Page.Resources.GetMatch (.Get "src") }}
+{{ with $img }}{{ $img = $img.Resize "960x" }}{{ end }}
 <img src="{{ with $img }}{{ .Permalink }}{{ else }}{{ .Get "src" }}{{ end }}" class="img-responsive img-thumbnail" {{ if .Get "scale" }}width="{{ .Get "scale" }}%" height="{{ .Get "scale" }}%"{{ end }} />
 {{ else }}
 {{ $img := $.Page.Resources.GetMatch (index .Params 0) }}
+{{ with $img }}{{ $img = $img.Resize "960x" }}{{ end }}
 <img src="{{ with $img }}{{ .Permalink }}{{ else }}{{ index .Params 0 }}{{ end }}" class="img-responsive img-thumbnail"/>
 {{ end }}
