@@ -5,7 +5,9 @@ usage:
 */}}
 
 {{ if .IsNamedParams }}
-<img src="{{ .Get "src" }}" class="img-responsive img-thumbnail" {{ if .Get "scale" }}width="{{ .Get "scale" }}%" height="{{ .Get "scale" }}%"{{ end }} />
+{{ $img := $.Page.Resources.GetMatch (.Get "src") }}
+<img src="{{ with $img }}{{ .Permalink }}{{ else }}{{ .Get "src" }}{{ end }}" class="img-responsive img-thumbnail" {{ if .Get "scale" }}width="{{ .Get "scale" }}%" height="{{ .Get "scale" }}%"{{ end }} />
 {{ else }}
-<img src="{{ index .Params 0 }}" class="img-responsive img-thumbnail"/>
+{{ $img := $.Page.Resources.GetMatch (index .Params 0) }}
+<img src="{{ with $img }}{{ .Permalink }}{{ else }}{{ index .Params 0 }}{{ end }}" class="img-responsive img-thumbnail"/>
 {{ end }}
