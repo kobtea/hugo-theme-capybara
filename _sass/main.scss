@@ -1,7 +1,5 @@
 @charset "utf-8";
 
-@import "../node_modules/bulma/sass/utilities/initial-variables";
-
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 $primary: #cc9966;
@@ -9,7 +7,20 @@ $link: #93C54B;
 $link-hover: darken($link, 10%);
 $footer-background-color: #F8F5F0;
 
-@import "../node_modules/bulma/bulma";
+// @import "../node_modules/bulma/bulma";
+@import "../node_modules/bulma/sass/utilities/_all";
+@import "../node_modules/bulma/sass/base/_all";
+@import "../node_modules/bulma/sass/components/media";
+@import "../node_modules/bulma/sass/components/navbar";
+@import "../node_modules/bulma/sass/components/pagination";
+@import "../node_modules/bulma/sass/elements/button";
+@import "../node_modules/bulma/sass/elements/container";
+// @import "../node_modules/bulma/sass/elements/content";
+@import "../node_modules/bulma/sass/elements/icon";
+@import "../node_modules/bulma/sass/elements/other";
+@import "../node_modules/bulma/sass/elements/title";
+@import "../node_modules/bulma/sass/grid/columns";
+@import "../node_modules/bulma/sass/layout/_all";
 
 body {
   font-size: 1rem;
