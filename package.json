@@ -1,10 +1,17 @@
 {
   "name": "hugo-theme-capybara",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "hugo theme",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "css-build": "node-sass _sass/main.scss static/css/main.css",
+    "css-deploy": "npm run css-build && npm run css-postcss",
+    "css-postcss": "postcss --use autoprefixer --output static/css/main.css static/css/main.css",
+    "css-watch": "npm run css-build -- --watch",
+    "deploy": "npm run css-deploy && npm run js-build",
+    "js-build": "babel _javascript --out-dir static/js",
+    "js-watch": "npm run js-build -- --watch",
+    "start": "npm run css-watch | npm run js-watch"
   },
   "repository": {
     "type": "git",
@@ -17,9 +24,12 @@
   },
   "homepage": "https://github.com/kobtea/hugo-theme-capybara#readme",
   "devDependencies": {
-    "bootstrap": "^3.3.5",
-    "grunt": "^0.4.5",
-    "grunt-contrib-less": "^1.1.0",
-    "grunt-contrib-watch": "^0.6.1"
+    "autoprefixer": "^9.0.0",
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015-ie": "^6.7.0",
+    "bulma": "^0.7.0",
+    "node-sass": "^4.5.3",
+    "postcss-cli": "^6.1.1"
   }
 }

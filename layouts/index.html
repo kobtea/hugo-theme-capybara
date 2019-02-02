@@ -1,13 +1,22 @@
-<!DOCTYPE html>
-<html>
-{{ partial "head.html" . }}
-<body>
-{{ partial "header.html" . }}
-
-{{ range first 1 .Data.Pages }}
-{{ partial "content.html" . }}
+{{ define "main" }}
+<br>
+{{ range first 10 .Pages }}
+<p class="is-size-4"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+<i class="fas fa-calendar-alt"></i>
+<time>{{ .Date.Format "2006-01-02 15:04" }}</time>
+<span>&nbsp;</span>
+<i class="fas fa-tags"></i>
+{{ range $tag := .Params.tags }}
+<a class="cp-tag" href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
+{{ end }}
+<p>{{ .Summary }}</p>
+<br>
 {{ end }}
 
-{{ partial "footer.html" . }}
-</body>
-</html>
+<nav class="cp-pagination">
+    <ul class="pagination-list">
+        <li><a class="pagination-link" href="/posts">Show more</a></li>
+    </ul>
+</nav>
+
+{{ end }}

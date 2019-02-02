@@ -1,15 +1,12 @@
 {{/* short code for image
 usage:
-    {{< capy-img "img/some-image.png" >}}
-    {{< capy-img src="img/some-image.png" scale="50" >}}
+{{< capy-img src="img/some-image.png" scale="50" caption="foobar" >}}
 */}}
-
-{{ if .IsNamedParams }}
 {{ $img := $.Page.Resources.GetMatch (.Get "src") }}
 {{ with $img }}{{ $img = $img.Resize "960x" }}{{ end }}
-<img src="{{ with $img }}{{ .Permalink }}{{ else }}{{ .Get "src" }}{{ end }}" class="img-responsive img-thumbnail" {{ if .Get "scale" }}width="{{ .Get "scale" }}%" height="{{ .Get "scale" }}%"{{ end }} />
-{{ else }}
-{{ $img := $.Page.Resources.GetMatch (index .Params 0) }}
-{{ with $img }}{{ $img = $img.Resize "960x" }}{{ end }}
-<img src="{{ with $img }}{{ .Permalink }}{{ else }}{{ index .Params 0 }}{{ end }}" class="img-responsive img-thumbnail"/>
-{{ end }}
+<figure class="capy-img">
+    <img src="{{ with $img }}{{ .Permalink }}{{ else }}{{ .Get "src" }}{{ end }}" {{ if .Get "scale" }}width="{{ .Get "scale" }}%" height="{{ .Get "scale" }}%"{{ end }} />
+    {{ if .Get "caption" }}
+    <figcaption>{{- .Get "caption" -}}</figcaption>
+    {{ end }}
+</figure>

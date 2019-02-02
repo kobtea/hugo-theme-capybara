@@ -6,7 +6,7 @@ Capybara is a blog theme for [Hugo](http://gohugo.io).
 ## Features
 
 - Responsive design
-- Code highlight (w/ [highlight.js](https://highlightjs.org))
+- Code highlight
 - Pagination
 - Tagging
 - RSS

@@ -1,26 +1,25 @@
-<!DOCTYPE html>
-<html>
-{{ partial "head.html" . }}
-<body>
-{{ partial "header.html" . }}
-
-<section class="container-fluid">
-    <h1>{{ .Title }}</h1>
-
-    {{ range $post := .Data.Pages}}
-    <h3><a href="{{ $post.Permalink }}">{{ $post.Title }}</a></h3>
-    <time pubdate datetime="{{ $post.Date.Format " 2006-01-02 " }}" title="{{ $post.Date.Format "2006-01-02" }}">{{ $post.Date.Format "2006-01-02" }}</time>
-    {{ range $tag := $post.Params.tags }}
-    <a href="/tags/{{ $tag | urlize }}">
-        <button type="button" class="btn btn-default btn-xs">{{ $tag }}</button>
-    </a>
-    {{ end }}
-    <br/>
-    {{ end }}
-
+{{ define "main" }}
+{{ $title := .Title }}
+<section class="hero">
+    <div class="hero-body">
+        <h1 class="title is-capitalized">
+            {{ if ne .Type (.Title | lower) }}
+            {{ .Type }} /
+            {{ end }}
+            {{ .Title }}
+        </h1>
+    </div>
 </section>
 
-
-{{ partial "footer.html" . }}
-</body>
-</html>
+{{ range $page := .Data.Pages }}
+<p class="is-size-4"><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></p>
+<i class="fas fa-calendar-alt"></i>
+<time>{{ .Date.Format "2006-01-02 15:04" }}</time>
+<span>&nbsp;</span>
+<i class="fas fa-tags"></i>
+{{ range $tag := .Params.tags }}
+<a class="cp-tag" href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
+{{ end }}
+<br><br>
+{{ end }}
+{{ end }}

@@ -1,11 +1,34 @@
-<!DOCTYPE html>
-<html>
-{{ partial "head.html" . }}
-<body>
-{{ partial "header.html" . }}
+{{ define "main" }}
+<article>
+    <section class="hero">
+        <div class="hero-body">
+            <h1 class="title">{{ .Title }}</h1>
+        </div>
+    </section>
 
-{{ partial "content.html" . }}
+    <i class="fas fa-calendar-alt"></i>
+    <time>{{ .Date.Format "2006-01-02 15:04" }}</time>
+    <span>&nbsp;</span>
+    <i class="fas fa-tags"></i>
+    {{ range $tag := .Params.tags }}
+    <a class="cp-tag" href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
+    {{ end }}
+    <aside>
+        {{ .TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" |  safeHTML }}
+    </aside>
 
-{{ partial "footer.html" . }}
-</body>
-</html>
+    {{ .Content }}
+
+    {{ template "_internal/disqus.html" . }}
+</article>
+<nav class="cp-pagination">
+    {{ if .PrevPage }}
+    <a class="pagination-previous" href="{{ .PrevPage.Permalink }}"><i class="fas fa-caret-left"></i>&nbsp;{{ .PrevPage.Title }}</a>
+    {{ else }}
+    <span></span>
+    {{ end }}
+    {{ if .NextPage }}
+    <a class="pagination-next" href="{{ .NextPage.Permalink }}">{{ .NextPage.Title }}&nbsp;<i class="fas fa-caret-right"></i></a>
+    {{ end }}
+</nav>
+{{ end }}

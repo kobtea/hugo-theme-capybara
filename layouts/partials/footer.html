@@ -1,39 +1,35 @@
-<footer>
-    <div class="container-fluid">
-        <div class="row">
-
-            <div class="col-md-4">
-                <strong>Author</strong>
+<footer class="footer">
+    <div class="container">
+        <div class="columns">
+            <div class="column is-4">
+                <strong class="is-size-5">Author</strong>
                 <div class="media">
-                    <div class="media-left media-top">
+                    <figure class="media-left">
                         <img src="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}.png">
-                    </div>
-                    <div class="media-body">
-                        <strong class="media-heading">{{ .Site.Params.author }}</strong>
-                        <a href="https://twitter.com/{{ .Site.Params.twitterId }}"><i class="fa fa-twitter-square fa-lg"></i></a>
-                        <a href="https://github.com/{{ .Site.Params.githubId }}"><i class="fa fa-github-square fa-lg"></i></a>
+                    </figure>
+                    <div class="media-content">
+                        <strong>{{ .Site.Params.author }}</strong>
+                        <a href="https://twitter.com/{{ .Site.Params.twitterId }}"><i class="fab fa-twitter-square fa-lg"></i></a>
+                        <a href="https://github.com/{{ .Site.Params.githubId }}"><i class="fab fa-github-square fa-lg"></i></a>
                         <br/>
                         <small>{{ .Site.Params.biography }}</small>
                     </div>
                 </div>
             </div>
-
-            <!--div class="col-md-4"> Archives </div-->
-
-            <div class="col-md-8">
-                <strong> Tags </strong><br/><br/>
-                {{ range $name, $taxonomy := .Site.Taxonomies.tags }}
-                <a href="/tags/{{ $name | urlize }}"><button type="button" class="btn btn-default btn-xs">{{ $name }}</button></a>
+            <div class="column is-8">
+                {{ range $name, $taxonomy := .Site.Taxonomies }}
+                {{ if gt (len $taxonomy) 0 }}
+                <p><strong class="is-capitalized is-size-5">{{ $name }}</strong></p>
+                {{ range $key, $value := $taxonomy }}
+                <a class="cp-tag" href="/{{ $name | urlize }}/{{ $key | urlize }}">#{{ $key }}</a>
+                {{ end }}
+                {{ end }}
                 {{ end }}
             </div>
-
         </div>
-        <p>&copy; {{ .Site.Params.copyright }} | Powered by <a href="https://gohugo.io/">HUGO</a> | Themed with <a
-                href="https://github.com/kobtea/hugo-theme-capybara">Capybara</a></p>
+        <p class="has-text-centered">{{ .Site.Copyright }} | Powered by <a href="https://gohugo.io/">HUGO</a> | Themed with <a href="https://github.com/kobtea/hugo-theme-capybara">Capybara</a></p>
     </div>
 </footer>
-<script src="{{ .Site.BaseURL }}/js/highlight.pack.js"></script>
-<script>hljs.initHighlightingOnLoad();</script>
 {{ if not .Site.IsServer }}
-    {{ template "_internal/google_analytics_async.html" . }}
+{{ template "_internal/google_analytics_async.html" . }}
 {{ end }}

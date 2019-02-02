@@ -1,0 +1,125 @@
+@charset "utf-8";
+
+@import "../node_modules/bulma/sass/utilities/initial-variables";
+
+$widescreen-enabled: false;
+$fullhd-enabled: false;
+$primary: #cc9966;
+$link: #93C54B;
+$link-hover: darken($link, 10%);
+$footer-background-color: #F8F5F0;
+
+@import "../node_modules/bulma/bulma";
+
+body {
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+p {
+  margin-bottom: 0.8rem;
+}
+
+ul {
+  li {
+    list-style-type: disc;
+    margin-left: 40px;
+  }
+}
+
+ol {
+  li {
+    list-style-type: decimal;
+    margin-left: 40px;
+  }
+}
+
+nav > ul > li {
+  list-style-type: none;
+}
+
+#TableOfContents {
+  list-style: none;
+  margin: 0;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0;
+}
+
+#TableOfContents > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    list-style-type: none;
+  }
+}
+
+h1 {
+  @extend .is-size-2
+}
+
+h2 {
+  @extend .is-size-3;
+  margin-top: 4rem;
+  margin-bottom: 0.5rem;
+}
+
+h3 {
+  @extend .is-size-4;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+h4 {
+  @extend .is-size-5;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+h5 {
+  @extend .is-size-6;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+h6 {
+  @extend .is-size-7;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-body {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.vertical-margin {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.capy-img {
+  img {
+    border: solid 1px $grey-light;
+  }
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cp-tag {
+  @extend .button;
+  @extend .is-small;
+  &:hover {
+    color: $grey-darker;
+  }
+}
+
+.cp-pagination {
+  @extend .pagination;
+  @extend .is-centered;
+  @extend .vertical-margin;
+  a:hover {
+    color: $grey-darker;
+  }
+}
