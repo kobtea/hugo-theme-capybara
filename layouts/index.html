@@ -1,6 +1,6 @@
 {{ define "main" }}
 <br>
-{{ range first 10 .Pages }}
+{{ range first 10 $.Site.RegularPages }}
 <p class="is-size-4"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
 <i class="fas fa-calendar-alt"></i>
 <time>{{ .Date.Format "2006-01-02 15:04" }}</time>
