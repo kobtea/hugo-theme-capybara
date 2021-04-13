@@ -6,6 +6,7 @@ $primary: #cc9966;
 $link: #93C54B;
 $link-hover: darken($link, 10%);
 $footer-background-color: #F8F5F0;
+$family-monospace: Menlo, Monaco, 'Courier New', Courier, monospace;
 
 // @import "../node_modules/bulma/bulma";
 @import "../node_modules/bulma/sass/utilities/_all";
@@ -72,6 +73,10 @@ nav > ul > li {
   li {
     list-style-type: none;
   }
+}
+
+pre, code {
+  @extend .is-family-monospace
 }
 
 h1 {
