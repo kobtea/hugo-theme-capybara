@@ -7,6 +7,7 @@ $link: #93C54B;
 $link-hover: darken($link, 10%);
 $footer-background-color: #F8F5F0;
 $family-monospace: Menlo, Monaco, 'Courier New', Courier, monospace;
+$code: hsl(0, 0%, 4%);
 
 // @import "../node_modules/bulma/bulma";
 @import "../node_modules/bulma/sass/utilities/_all";
