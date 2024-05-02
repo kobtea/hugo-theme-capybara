@@ -1,23 +1,17 @@
-<header>
-    <nav class="navbar is-primary">
-        <div class="container">
-            <div class="navbar-brand">
-                <a class="navbar-item" href="{{ .Site.BaseURL }}"><strong>{{ .Site.Title }}</strong></a>
+<header class="bg-primary">
+    <nav class="max-w-screen-lg flex flex-wrap items-start md:items-center justify-between mx-auto p-4">
+        <a class="text-white text-xl font-bold" href="{{ .Site.BaseURL }}">
+            <span class="">{{ .Site.Title }}</span>
+        </a>
 
-                <a class="navbar-burger burger" data-target="navigation">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        <ul class="flex flex-col md:flex-row ">
+            {{ range .Site.Menus.header }}
+            <li>
+                <a href="{{ .URL }}" class="block px-2 text-white ">
+                    {{ .Name }}
                 </a>
-            </div>
-
-            <div id="navigation" class="navbar-menu">
-                <div class="navbar-end">
-                    {{ range .Site.Menus.header }}
-                    <a class="navbar-item" href="{{ .URL }}">{{ .Name }}</a>
-                    {{ end }}
-                </div>
-            </div>
-        </div>
+            </li>
+            {{ end }}
+        </ul>
     </nav>
 </header>

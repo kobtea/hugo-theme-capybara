@@ -1,17 +1,10 @@
 {
   "name": "hugo-theme-capybara",
-  "version": "2.0.0",
+  "version": "3.0.0",
   "description": "hugo theme",
   "main": "index.js",
   "scripts": {
-    "css-build": "node-sass _sass/main.scss static/css/main.css",
-    "css-deploy": "npm run css-build && npm run css-postcss",
-    "css-postcss": "postcss --use autoprefixer csswring --no-map --output static/css/main.css static/css/main.css",
-    "css-watch": "npm run css-build -- --watch",
-    "deploy": "npm run css-deploy && npm run js-build",
-    "js-build": "babel _javascript --out-dir static/js",
-    "js-watch": "npm run js-build -- --watch",
-    "start": "npm run css-watch | npm run js-watch"
+    "gen-syntax": "hugo gen chromastyles > static/css/syntax.css"
   },
   "repository": {
     "type": "git",
@@ -24,13 +17,11 @@
   },
   "homepage": "https://github.com/kobtea/hugo-theme-capybara#readme",
   "devDependencies": {
-    "autoprefixer": "^9.0.0",
-    "babel-cli": "^6.26.0",
-    "babel-preset-env": "^1.6.0",
-    "babel-preset-es2015-ie": "^6.7.0",
-    "bulma": "^0.7.0",
-    "csswring": "^7.0.0",
-    "node-sass": "^4.5.3",
-    "postcss-cli": "^6.1.1"
+    "@tailwindcss/typography": "^0.5.13",
+    "postcss": "^8.4.32",
+    "tailwindcss": "^3.3.6"
+  },
+  "dependencies": {
+    "autoprefixer": "^10.4.19"
   }
 }

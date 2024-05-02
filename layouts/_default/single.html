@@ -1,35 +1,32 @@
 {{ define "main" }}
 <article>
-    <section class="hero">
-        <div class="hero-body">
-            <h1 class="title">{{ .Title }}</h1>
-        </div>
+    <section class="py-8">
+        <h1>{{ .Title }}</h1>
+        <i class="fas fa-calendar-alt"></i>
+        <time>{{ .Date.Format "2006-01-02 15:04" }}</time>
+        <span>&nbsp;</span>
+        <i class="fas fa-tags"></i>
+        {{ range $tag := .Params.tags }}
+        <a href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
+        {{ end }}
     </section>
 
-    <i class="fas fa-calendar-alt"></i>
-    <time>{{ .Date.Format "2006-01-02 15:04" }}</time>
-    <span>&nbsp;</span>
-    <i class="fas fa-tags"></i>
-    {{ range $tag := .Params.tags }}
-    <a class="cp-tag" href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
-    {{ end }}
-    <aside>
-        {{ .TableOfContents | replaceRE "<ul>[[:space:]]*<li>[[:space:]]*<ul>" "<ul>" | replaceRE "</ul>[[:space:]]*</li>[[:space:]]*</ul>" "</ul>" |  safeHTML }}
-    </aside>
+    <div class="border rounded">
+        <aside>
+            {{ .TableOfContents }}
+        </aside>
+    </div>
 
     {{ .Content }}
-
-    <hr/>
-    {{ template "_internal/disqus.html" . }}
+    <hr class="py-0 my-0">
 </article>
-<nav class="cp-pagination">
+<nav class="flex flex-col md:flex-row justify-between">
     {{ if .PrevPage }}
-    <a class="pagination-previous" href="{{ .PrevPage.Permalink }}"><i class="fas fa-caret-left"></i>&nbsp;{{ .PrevPage.Title }}</a>
+    <a class="py-4 text-left" href="{{ .PrevPage.Permalink }}"><i class="fas fa-caret-left"></i>&nbsp;{{ .PrevPage.Title }}</a>
     {{ else }}
-    <span></span>
     {{ end }}
     {{ if .NextPage }}
-    <a class="pagination-next" href="{{ .NextPage.Permalink }}">{{ .NextPage.Title }}&nbsp;<i class="fas fa-caret-right"></i></a>
+    <a class="py-4 text-right" href="{{ .NextPage.Permalink }}">{{ .NextPage.Title }}&nbsp;<i class="fas fa-caret-right"></i></a>
     {{ end }}
 </nav>
 {{ end }}

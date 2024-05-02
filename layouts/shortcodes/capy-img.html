@@ -4,9 +4,9 @@ usage:
 */}}
 {{ $img := $.Page.Resources.GetMatch (.Get "src") }}
 {{ with $img }}{{ $img = $img.Resize "960x" }}{{ end }}
-<figure class="capy-img">
-    <img src="{{ with $img }}{{ .Permalink }}{{ else }}{{ .Get "src" }}{{ end }}" {{ if .Get "scale" }}width="{{ .Get "scale" }}%" height="{{ .Get "scale" }}%"{{ end }} />
+<figure class="flex flex-col items-center">
+    <img class="border rounded" src="{{ with $img }}{{ .Permalink }}{{ else }}{{ .Get "src" }}{{ end }}" {{ if .Get "scale" }}width="{{ .Get "scale" }}%" height="{{ .Get "scale" }}%"{{ end }} />
     {{ if .Get "caption" }}
-    <figcaption>{{- .Get "caption" -}}</figcaption>
+    <figcaption class="text-center">{{- .Get "caption" -}}</figcaption>
     {{ end }}
 </figure>

@@ -10,8 +10,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {{ template "_internal/twitter_cards.html" . }}
 
-    <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/main.css">
+    {{- with resources.Get "css/main.css" | postCSS (dict "config" "./assets/js/postcss.config.js") | minify | fingerprint}}
+    <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+    {{- end }}
     <link type="text/css" rel="stylesheet" href="{{ .Site.BaseURL }}css/syntax.css">
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-    <script src="{{ .Site.BaseURL }}js/main.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v6.4.2/js/all.js"></script>
 </head>

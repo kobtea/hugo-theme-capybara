@@ -1,22 +1,20 @@
 {{ define "main" }}
-<br>
 {{ range first 10 $.Site.RegularPages }}
-<p class="is-size-4"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
-<i class="fas fa-calendar-alt"></i>
-<time>{{ .Date.Format "2006-01-02 15:04" }}</time>
-<span>&nbsp;</span>
-<i class="fas fa-tags"></i>
-{{ range $tag := .Params.tags }}
-<a class="cp-tag" href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
-{{ end }}
-<p>{{ .Summary }}</p>
-<br>
+<article>
+    <p class="text-xl font-semibold my-2"><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+    <i class="fas fa-calendar-alt"></i>
+    <time>{{ .Date.Format "2006-01-02 15:04" }}</time>
+    <span>&nbsp;</span>
+    <i class="fas fa-tags"></i>
+    {{ range $tag := .Params.tags }}
+    <a class="" href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
+    {{ end }}
+    <p class="my-0 bg-code-light rounded">{{ .Summary }}</p>
+    <br>
+</article>
 {{ end }}
 
-<nav class="cp-pagination">
-    <ul class="pagination-list">
-        <li><a class="pagination-link" href="/posts">Show more</a></li>
-    </ul>
+<nav class="text-center">
+    <a class="py-4" href="/posts">Show more</a>
 </nav>
-
 {{ end }}
