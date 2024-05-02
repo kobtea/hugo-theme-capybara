@@ -1,12 +1,23 @@
 {{/* short code for image
-usage:
-{{< capy-img src="img/some-image.png" scale="50" caption="foobar" >}}
+  usage:
+  {{< capy-img src="img/some-image.png" scale="50" caption="foobar"
+>}}
 */}}
 {{ $img := $.Page.Resources.GetMatch (.Get "src") }}
 {{ with $img }}{{ $img = $img.Resize "960x" }}{{ end }}
 <figure class="flex flex-col items-center">
-    <img class="border rounded" src="{{ with $img }}{{ .Permalink }}{{ else }}{{ .Get "src" }}{{ end }}" {{ if .Get "scale" }}width="{{ .Get "scale" }}%" height="{{ .Get "scale" }}%"{{ end }} />
-    {{ if .Get "caption" }}
-    <figcaption class="text-center">{{- .Get "caption" -}}</figcaption>
+  <img
+    class="rounded border"
+    src="{{ with $img }}
+      {{ .Permalink }}
+    {{ else }}
+      {{ .Get "src" }}
+    {{ end }}"
+    {{ if .Get "scale" }}
+      width="{{ .Get "scale" }}%" height="{{ .Get "scale" }}%"
     {{ end }}
+  />
+  {{ if .Get "caption" }}
+    <figcaption class="text-center">{{- .Get "caption" -}}</figcaption>
+  {{ end }}
 </figure>

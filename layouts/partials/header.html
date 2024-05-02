@@ -1,17 +1,17 @@
 <header class="bg-primary">
-    <nav class="max-w-screen-lg flex flex-wrap items-start md:items-center justify-between mx-auto p-4">
-        <a class="text-white text-xl font-bold" href="{{ .Site.BaseURL }}">
-            <span class="">{{ .Site.Title }}</span>
-        </a>
+  <nav
+    class="mx-auto flex max-w-screen-lg flex-wrap items-start justify-between p-4 md:items-center"
+  >
+    <a class="text-xl font-bold text-white" href="{{ .Site.BaseURL }}">
+      <span class="">{{ .Site.Title }}</span>
+    </a>
 
-        <ul class="flex flex-col md:flex-row ">
-            {{ range .Site.Menus.header }}
-            <li>
-                <a href="{{ .URL }}" class="block px-2 text-white ">
-                    {{ .Name }}
-                </a>
-            </li>
-            {{ end }}
-        </ul>
-    </nav>
+    <ul class="flex flex-col md:flex-row">
+      {{ range .Site.Menus.header }}
+        <li>
+          <a href="{{ .URL }}" class="block px-2 text-white"> {{ .Name }} </a>
+        </li>
+      {{ end }}
+    </ul>
+  </nav>
 </header>

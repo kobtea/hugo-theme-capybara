@@ -1,41 +1,55 @@
 <footer class="bg-primary-light">
-    <div class="max-w-screen-lg mx-auto p-4 prose">
-        <div class="grid grid-cols-2 md:grid-cols-3">
-            <div class="col-span-1">
-                <p class="text-lg font-bold">Author</p>
-                <address class="flex content-start not-italic">
-                    <img class="my-0 rounded-full" src="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}.png"
-                         alt="author">
-                    <div class="px-4">
-                        <strong>{{ .Site.Params.author }}</strong>
-                        <a href="https://twitter.com/{{ .Site.Params.twitterId }}"><i
-                                class="fa-brands fa-square-x-twitter fa-lg"></i></a>
-                        <a href="https://github.com/{{ .Site.Params.githubId }}"><i
-                                class="fa-brands fa-square-github fa-lg"></i></a>
-                        <br/>
-                        <small>{{ .Site.Params.biography }}</small>
-                    </div>
-                </address>
-            </div>
+  <div class="prose mx-auto max-w-screen-lg p-4">
+    <div class="grid grid-cols-2 md:grid-cols-3">
+      <div class="col-span-1">
+        <p class="text-lg font-bold">Author</p>
+        <address class="flex content-start not-italic">
+          <img
+            class="my-0 rounded-full"
+            src="https://www.gravatar.com/avatar/{{ .Site.Params.gravatarHash }}.png"
+            alt="author"
+          />
+          <div class="px-4">
+            <strong>{{ .Site.Params.author }}</strong>
+            <a href="https://twitter.com/{{ .Site.Params.twitterId }}"
+              ><i class="fa-brands fa-square-x-twitter fa-lg"></i
+            ></a>
+            <a href="https://github.com/{{ .Site.Params.githubId }}"
+              ><i class="fa-brands fa-square-github fa-lg"></i
+            ></a>
+            <br />
+            <small>{{ .Site.Params.biography }}</small>
+          </div>
+        </address>
+      </div>
 
-            <div class="col-span-2">
-                {{ range $name, $taxonomy := .Site.Taxonomies }}
-                {{ if gt (len $taxonomy) 0 }}
-                <p><strong class="text-lg capitalize">{{ $name }}</strong></p>
-                {{ range $key, $value := $taxonomy }}
-                <a class="" href="/{{ $name | urlize }}/{{ $key | urlize }}">#{{ $key }}</a>
-                {{ end }}
-                {{ end }}
-                {{ end }}
-            </div>
-        </div>
-
-        <div class="text-sm text-center py-2">
-            <span class="">{{ .Site.Copyright }} | Powered by <a href="https://gohugo.io/">HUGO</a> | Themed with <a
-                    href="https://github.com/kobtea/hugo-theme-capybara">Capybara</a></span>
-        </div>
+      <div class="col-span-2">
+        {{ range $name, $taxonomy := .Site.Taxonomies }}
+          {{ if gt (len
+            $taxonomy) 0
+          }}
+            <p><strong class="text-lg capitalize">{{ $name }}</strong></p>
+            {{ range $key, $value := $taxonomy }}
+              <a class="" href="/{{ $name | urlize }}/{{ $key | urlize }}"
+                >#{{ $key }}</a
+              >
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      </div>
     </div>
+
+    <div class="py-2 text-center text-sm">
+      <span class=""
+        >{{ .Site.Copyright }} | Powered by
+        <a href="https://gohugo.io/">HUGO</a> | Themed with
+        <a href="https://github.com/kobtea/hugo-theme-capybara"
+          >Capybara</a
+        ></span
+      >
+    </div>
+  </div>
 </footer>
 {{ if not .Site.IsServer }}
-{{ template "_internal/google_analytics.html" . }}
+  {{ template "_internal/google_analytics.html" . }}
 {{ end }}

@@ -2,7 +2,6 @@
 
 Capybara is a blog theme for [Hugo](http://gohugo.io).
 
-
 ## Features
 
 - Responsive design
@@ -10,19 +9,16 @@ Capybara is a blog theme for [Hugo](http://gohugo.io).
 - Pagination
 - Tagging
 - RSS
-- Disqus comment
 - Gravater icon
 - Twitter link
 - GitHub link
 - Google analytics
 - Shortcodes
-    - `capy-img` for image
-
+  - `capy-img` for image
 
 ## Demo
 
 See [kobtea.net](http://kobtea.net).
-
 
 ## Installation
 

@@ -1,23 +1,23 @@
 {{ define "main" }}
-{{ $title := .Title }}
-<section class="py-8">
+  {{ $title := .Title }}
+  <section class="py-8">
     <h1 class="capitalize">
-            {{ if ne .Type (.Title | lower) }}
-            {{ .Type }} /
-            {{ end }}
-            {{ .Title }}
+      {{ if ne .Type (.Title | lower) }}{{ .Type }} /{{ end }}
+      {{ .Title }}
     </h1>
-</section>
+  </section>
 
-{{ range $page := .Data.Pages }}
-<p class="text-xl font-semibold my-2"><a href="{{ $page.Permalink }}">{{ $page.Title }}</a></p>
-<i class="fas fa-calendar-alt"></i>
-<time>{{ .Date.Format "2006-01-02 15:04" }}</time>
-<span>&nbsp;</span>
-<i class="fas fa-tags"></i>
-{{ range $tag := .Params.tags }}
-<a class="" href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
-{{ end }}
-<br><br>
-{{ end }}
+  {{ range $page := .Data.Pages }}
+    <p class="my-2 text-xl font-semibold">
+      <a href="{{ $page.Permalink }}">{{ $page.Title }}</a>
+    </p>
+    <i class="fas fa-calendar-alt"></i>
+    <time>{{ .Date.Format "2006-01-02 15:04" }}</time>
+    <span>&nbsp;</span>
+    <i class="fas fa-tags"></i>
+    {{ range $tag := .Params.tags }}
+      <a class="" href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
+    {{ end }}
+    <br /><br />
+  {{ end }}
 {{ end }}
