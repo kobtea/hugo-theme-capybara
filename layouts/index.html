@@ -11,7 +11,7 @@
       {{ range $tag := .Params.tags }}
         <a class="" href="/tags/{{ $tag | urlize }}">#{{ $tag }}</a>
       {{ end }}
-      <p class="bg-code-light my-0 rounded">{{ .Summary }}</p>
+      <p class="bg-code-light my-0 rounded">{{ .Summary }}...</p>
       <br />
     </article>
   {{ end }}

@@ -3,7 +3,7 @@
   {{ partial "head.html" . }}
   <body>
     {{ partial "header.html" . }}
-    <section class="prose mx-auto max-w-screen-lg p-4">
+    <section class="prose mx-auto max-w-screen-lg break-words p-4">
       {{- block "main" . }}{{- end }}
     </section>
     {{ partial "footer.html" . }}
